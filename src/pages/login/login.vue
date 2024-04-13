@@ -1,6 +1,6 @@
 <template>
     <div class="">
-        <autenticacao title="entre com sua conta" primaryBtnText="Entrar" secundaryBtnText="Cadastrar" rota="/cadastrar"  @formSubmitted="login"  >
+        <autenticacao title="Entre com sua conta" primaryBtnText="Entrar" secundaryBtnText="Cadastrar" rota="/cadastrar"  @formSubmitted="login"  >
             <form >
                <inputDefault
                type="email"
@@ -22,6 +22,7 @@
                >
                <img src="../../assets/senha.svg" />
                </inputDefault>
+               
 
             </form>
         </autenticacao  >

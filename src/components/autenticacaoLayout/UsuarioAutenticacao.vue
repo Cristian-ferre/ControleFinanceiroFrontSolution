@@ -50,7 +50,11 @@ const submitForm = () => {
             <!-- <h1>Finanço</h1> -->
             <!-- <div class="logo-container">
                 <i class="fas fa-coins logo-icon"></i> -->
-                <h1 class="logo-text">Finanço</h1>
+                <span class="logotipo">
+                    <img class="logo" src="../../assets/logo-financo.svg"></img>
+                    <h1 class="logo-text">Finanço</h1>
+                </span>
+
             <!-- </div> -->
             <h2>{{ title }}</h2>
 
@@ -124,6 +128,16 @@ main {
     .form-section {
         flex-grow: 0.3;
         margin: 0 20px;
+
+        .logotipo{
+            display: flex;
+            align-items: center;
+            color: #6115DD;
+        }
+
+        .logo{
+        width: 40px;
+        }
 
         button {
             background-color: var(--primary-color);
