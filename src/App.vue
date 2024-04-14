@@ -1,11 +1,9 @@
 <script setup>
 
-
 </script>
 <template>
   <div>
-    <!-- <Menu/>
-    <Receita/> -->
+
     <RouterView/>
   </div>
 </template>
@@ -18,3 +16,4 @@
     /* height: 100vh; */
 }
 </style>
+

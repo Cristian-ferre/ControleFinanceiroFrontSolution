@@ -127,7 +127,8 @@ main {
 
     .form-section {
         flex-grow: 0.3;
-        margin: 0 20px;
+        padding: 0 20px;
+        background-color: #fff;
 
         .logotipo{
             display: flex;
