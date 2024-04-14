@@ -59,7 +59,7 @@ const login = async () => {
     // Lidar com a resposta de login
     console.log('Resposta de login:',  response.data.token.token);
     
-    router.push("/home");
+    router.push("/dashboard");
     
   } catch (error) {
     // Exibir mensagem de erro para o usuário
