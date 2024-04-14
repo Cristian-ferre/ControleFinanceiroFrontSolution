@@ -1,5 +1,4 @@
 <script setup>
-import '@/styles/variaveis.css'
 
 import { useRouter } from "vue-router"
 const router = useRouter();
@@ -150,8 +149,5 @@ a{
 
 }
 
-#container-main{
-    background-color: red;
-    margin-left: 300px;
-}
+
 </style>

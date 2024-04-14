@@ -1,8 +1,9 @@
 <template>
     
     <div>
-        <Menu/>
-        <main>
+        <aside/>
+
+        <main id="container-main">
 
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam aut dolor nemo deleniti voluptatibus ipsam quaerat. Natus soluta laboriosam ad, provident libero, quos aliquid impedit minus ratione quidem ipsam illo.</p>
         </main>
@@ -10,8 +11,7 @@
 </template>
 
 <script setup>
-import http from '@/services/http.js'
-import Menu from '@/components/Menu/Menu.vue'
+import aside from "@/components/aside.vue"
 
 
 </script>
