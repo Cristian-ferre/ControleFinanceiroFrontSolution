@@ -1,7 +1,6 @@
 <script setup>
-// import './styles/variaveis.css'
 
-import { useRouter } from "vue-router"
+import { useRouter } from "vue-router";
 const router = useRouter();
 
 const isActive = (routePath) => {
@@ -20,7 +19,7 @@ const isActive = (routePath) => {
         <span>
           <span class="perfil">
             <div>
-              <img src="./assets/img/cristian.jpeg" alt="">
+              <img src="../assets/img/cristian.jpeg" alt="">
             </div>
             <h2>Cristian Ferreira</h2>
           </span>
@@ -34,11 +33,11 @@ const isActive = (routePath) => {
               </li>
               <li :class="{ 'active': isActive('/receita') }">
                 <RouterLink to="/receita" class=" itens">
-                  <i class="fa-solid fa-building-columns"></i>                
-                    <p>Receitas</p>
+                  <i class="fa-solid fa-building-columns"></i>
+                  <p>Receitas</p>
                 </RouterLink>
               </li>
-             
+
             </ul>
           </nav>
         </span>
@@ -63,7 +62,7 @@ const isActive = (routePath) => {
 /* @import './styles/variaveis.css'; */
 
 
-body{
+body {
   background-color: red !important;
 }
 
@@ -147,5 +146,7 @@ body{
 
 #container-main {
   margin-left: 120px;
+  background-color: #E3E9F7;
+
 }
 </style>

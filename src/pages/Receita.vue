@@ -1,5 +1,5 @@
 <template>
-    <!-- <Menu/> -->
+    <asideNav/>
     <main id="container-main">
         <h1>Receitas</h1>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam aut dolor nemo deleniti voluptatibus ipsam
@@ -11,8 +11,7 @@
 </template>
 
 <script setup>
-import http from '@/services/http.js'
-// import Menu from '@/components/Menu/Menu.vue'
+import asideNav from "@/components/MenuAside.vue"
 
 
 </script>
