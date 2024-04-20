@@ -3,14 +3,17 @@ import { createRouter, createWebHistory } from 'vue-router'
 import Login from '../pages/auth/Login.vue'
 import Signup from '@/pages/auth/Signup.vue'
 import dashboard from '@/pages/Dashboard.vue'
-import receita from '@/pages/Receita.vue'
+import receita from '@/pages/transacoes/Receita.vue'
+import despesa from '@/pages/transacoes/Despesa.vue'
+
 // import { isAuthenticated } from '@/services/auth'; // Função para verificar se o usuário está autenticado
 
 
 const routes = [
   { path: '/login', component: Login },
   { path: '/cadastrar', component: Signup },
-  { path: '/receita', component: receita, meta: { requiresAuth: true } },
+  { path: '/transacoes/receita', component: receita, meta: { requiresAuth: true } },
+  { path: '/transacoes/despesa', component: despesa, meta: { requiresAuth: true } },
   {path: '/dashboard', component: dashboard, name:'dashboard',   meta: { requiresAuth: true }  },
 ]
 

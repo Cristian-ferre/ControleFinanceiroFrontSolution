@@ -13,8 +13,8 @@ const isActive = (routePath) => {
 
 
 <template>
-  <div id="structure">
-    <aside class="container-aside">
+  <div id="" class="container-aside ">
+    <aside class="">
       <div class="aside-margin">
         <span>
           <span class="perfil">
@@ -28,13 +28,13 @@ const isActive = (routePath) => {
               <li :class="{ 'active': isActive('/dashboard') }" class="dashboard">
                 <RouterLink to="/dashboard" class="itens ">
                   <i class="fa-solid fa-chart-line"></i>
-                  <p>Dashboard</p>
+                  Dashboard
                 </RouterLink>
               </li>
               <li :class="{ 'active': isActive('/receita') }">
-                <RouterLink to="/receita" class=" itens">
-                  <i class="fa-solid fa-building-columns"></i>
-                  <p>Receitas</p>
+                <RouterLink to="/transacoes/despesa" class=" itens">
+                  <i class="fa-solid fa-money-bill-transfer"></i>
+                  transações
                 </RouterLink>
               </li>
 
@@ -44,33 +44,25 @@ const isActive = (routePath) => {
         <span class="sair">
           <RouterLink to="/login" class=" itens">
             <i class="fa-solid fa-right-from-bracket"></i>
-            <p>Sair</p>
+            Sair
           </RouterLink>
         </span>
       </div>
     </aside>
-    <div id="container-main">
+    <!-- <div id="container-main">
       <RouterView />
-    </div>
+    </div> -->
   </div>
 
 </template>
 
 
 
-<style scoped>
-/* @import './styles/variaveis.css'; */
-
-
-body {
-  background-color: red !important;
-}
-
+<style>
 .container-aside {
+  width: 20%;
   position: fixed;
-  background-color: #fff;
-  width: 235px;
-  height: 100vh;
+  background-color: white;
   border-radius: 0 15px 15px 0;
 
   .aside-margin {
@@ -85,9 +77,8 @@ body {
     display: flex;
     align-items: center;
     gap: 10px;
-    font-size: 10px;
+    /* font-size: 10px; */
     font-family: 'Poppins', sans-serif;
-    white-space: nowrap;
 
     img {
       width: 50px;
@@ -96,9 +87,16 @@ body {
       border-radius: 20px;
     }
 
+    h2{
+      font-size: 20px;
+      margin: 0;
+    }
+
   }
 
   .navegacao {
+    padding: 0;
+
     li {
       list-style: none;
       border-radius: 8px;
@@ -112,7 +110,6 @@ body {
     .dashboard {
       background-color: #4f46e5 !important;
       z-index: 1000;
-
 
       a {
 
@@ -129,6 +126,7 @@ body {
     margin: 10px 10px;
     color: black;
     font-weight: 500;
+    align-items: center;
   }
 
   .sair {
@@ -140,13 +138,16 @@ body {
     color: #FAC628 !important;
   }
 
-
-
 }
 
 #container-main {
-  margin-left: 120px;
-  background-color: #E3E9F7;
+  margin-left: 21%;
+  width: 100%;
+  height: 100vh;
+}
 
+#structure {
+  display: flex;
+  height: 100%;
 }
 </style>

@@ -3,10 +3,10 @@
 }
 
 body{
-    background-color: #E3E9F7;
+    background-color: #E3E9F7 !important;
 
 }
 
 a {
-    text-decoration: none;
+    text-decoration: none !important;
   }
