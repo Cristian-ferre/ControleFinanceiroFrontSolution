@@ -1,12 +1,17 @@
 <script setup>
-
 import { useRouter } from "vue-router";
+
 const router = useRouter();
 
 const isActive = (routePath) => {
   console.log("router.currentRoute.value.path:", router.currentRoute.value.path);
   console.log("routePath:", routePath);
   return router.currentRoute.value.path === routePath;
+}
+
+const limparlocalStorage = ()=>{
+  console.log("limpar")
+  localStorage.clear()
 }
 
 </script>
@@ -42,7 +47,7 @@ const isActive = (routePath) => {
           </nav>
         </span>
         <span class="sair">
-          <RouterLink to="/login" class=" itens">
+          <RouterLink @click="limparlocalStorage()" to="/login" class=" itens">
             <i class="fa-solid fa-right-from-bracket"></i>
             Sair
           </RouterLink>
