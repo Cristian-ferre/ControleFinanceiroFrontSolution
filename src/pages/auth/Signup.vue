@@ -1,92 +1,90 @@
 <template>
     <div class="">
-        <autenticacao title="Crie uma conta agora" primaryBtnText="Cadastrar" secundaryBtnText="Entrar" rota="/login" @formSubmitted="cadastrar">
+        <autenticacao title="Crie uma conta agora" primaryBtnText="Cadastrar" secundaryBtnText="Entrar" rota="/login"
+            @formSubmitted="cadastrar">
             <form>
-               <inputDefault
-               type="text"
-               forName="nome"
-               placeholder=" Cristian"
-               label="Nome"
-               >
-               <img src="../../assets/email.svg" />
-               </inputDefault>
+                <inputDefault type="text" forName="nome" placeholder=" Cristian" label="Nome">
+                    <img src="../../assets/email.svg" />
+                </inputDefault>
 
-               <inputDefault
-               type="email"
-               forName="email"
-               placeholder="cferreira@gmail.com.br"
-               label="Email"
-               >
-               <img src="../../assets/email.svg" />
-               </inputDefault>
+                <inputDefault type="email" forName="email" placeholder="cferreira@gmail.com.br" label="Email">
+                    <img src="../../assets/email.svg" />
+                </inputDefault>
 
-               <inputDefault
-               type="text"
-               forName="senha"
-               placeholder="Entre com a senha"
-               label="Senha"
-               >
-               <img src="../../assets/senha.svg" />
-               </inputDefault>
+                <inputDefault type="text" forName="senha" placeholder="Entre com a senha" label="Senha">
+                    <img src="../../assets/senha.svg" />
+                </inputDefault>
 
-               <inputDefault
-               type="text"
-               forName="senha2"
-               placeholder="Entre com a senha"
-               label=""
-               >
-               <img src="../../assets/senha.svg" />
-               </inputDefault>
+                <inputDefault type="text" forName="senha2" placeholder="Entre com a senha" label="">
+                    <img src="../../assets/senha.svg" />
+                </inputDefault>
             </form>
-        </autenticacao  >
+        </autenticacao>
     </div>
 </template>
 
 
 <script setup>
+import 'vue3-toastify/dist/index.css'
+
 import autenticacao from '../../components/autenticacaoLayout/UsuarioAutenticacao.vue'
 import inputDefault from '../../components/estruturaInput/input.vue'
-import http from '@/services/http.js'   
+import http from '@/services/http.js'
 import { useRouter } from 'vue-router';
+import { toast } from 'vue3-toastify';
 const router = useRouter();
 
-const cadastrar = async () =>{
+const cadastrar = async () => {
 
     var senha = document.querySelector('#senha').value
     var senha2 = document.querySelector('#senha2').value
 
-    if(senha != senha2){
-        alert("A senha está diferente da confirmação!")
+    if (senha != senha2) {
+        toast.error('Insera mesma senha!', {
+            autoClose: 1000,
+            style: {
+                fontSize: '14px', // Tamanho de fonte apropriado para dispositivos móveis
+            }
+        });
         return
     }
 
     const data = {
-        nome:document.querySelector('#nome').value, 
-        senha:document.querySelector('#senha').value, 
-        email:document.querySelector('#email').value
-        }
+        nome: document.querySelector('#nome').value,
+        senha: document.querySelector('#senha').value,
+        email: document.querySelector('#email').value
+    }
 
-    try{
-        let response = await http.post('/Usuario/Cadastrar', data)  
+    try {
+        let response = await http.post('/Usuario/Cadastrar', data)
 
         console.log(response.data)
-        alert("Cadastro feito com sucesso!")
-        router.push("/login");
+        toast.success('Cadastro feito com sucesso!', {
+            autoClose: 600,     
+            onClose: () => {
+            router.push("/login");
+        }      
+        });
 
-    }catch(error){
+        // alert("Cadastro feito com sucesso!")
+        // router.push("/login");
+
+    } catch (error) {
         console.log('deu ruim')
         console.log(Object.keys(error))
         console.log(error.response.data)
         alert(error.response.data)
     }
 
-    
+
 }
 </script>
 
 <style>
+@import '/src/style.css';
 
-form{
+
+form {
     width: 100%;
 }
 </style>

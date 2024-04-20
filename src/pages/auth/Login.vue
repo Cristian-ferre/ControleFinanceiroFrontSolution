@@ -31,11 +31,15 @@
 
 
 <script setup>
+import 'vue3-toastify/dist/index.css'
+
 import autenticacao from '../../components/autenticacaoLayout/UsuarioAutenticacao.vue'
 import inputDefault from '../../components/estruturaInput/input.vue'
 import axios from 'axios';
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
+import { toast } from 'vue3-toastify';
+
 const router = useRouter();
 
 const email = ref('');
@@ -55,16 +59,32 @@ const login = async () => {
   try {
     let response = await axios.post(`https://localhost:44318/ControleFinanceiro/Usuario/Auth?email=${email.value}&senha=${senha.value}`)
 
+
+    if(response == null){
+      console.log("vaziooo")
+    }
+
     localStorage.setItem("token", response.data.token.token)
     // Lidar com a resposta de login
     console.log('Resposta de login:',  response.data.token.token);
-    
-    router.push("/dashboard");
+   
+    toast.success('Login feito com sucesso', {
+      containerId: 'A',
+            autoClose: 200,
+            onClose: () => {
+              router.push("/dashboard");
+        }      
+        });
     
   } catch (error) {
     // Exibir mensagem de erro para o usuário
+    toast.error(error.response.data, {
+      containerId: 'A',
+            autoClose: 400,
+           
+        });
     console.log(error)
-    alert(error.response.data)
+    // alert(error.response.data)
   }
 
   

@@ -12,7 +12,9 @@
     "axios": "^1.6.8",
     "ngx-toastr": "^18.0.0",
     "vue": "^3.3.11",
-    "vue-router": "^4.3.0"
+    "vue-router": "^4.3.0",
+    "vue-toastr": "^2.1.2",
+    "vue3-toastify": "^0.2.1"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.5.2",
