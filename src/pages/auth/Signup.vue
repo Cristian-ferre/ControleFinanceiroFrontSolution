@@ -40,7 +40,7 @@ const cadastrar = async () => {
     var senha2 = document.querySelector('#senha2').value
 
     if (senha != senha2) {
-        toast.error('Insera mesma senha!', {
+        toast.error('Insera a mesma senha!', {
             autoClose: 1000,
             style: {
                 fontSize: '14px', // Tamanho de fonte apropriado para dispositivos móveis

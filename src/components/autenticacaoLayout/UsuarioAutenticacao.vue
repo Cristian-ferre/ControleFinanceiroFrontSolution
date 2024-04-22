@@ -136,6 +136,11 @@ main {
             color: #6115DD;
         }
 
+        h1{
+            margin: 0 !important;
+
+        }
+
         .logo{
         width: 40px;
         }
@@ -180,14 +185,29 @@ main {
             width: 100%;
             background-color: var(--or-divisor);
             border-radius: 1px;
-
-
         }
+    }
+}
 
+@media screen and (max-width: 800px) {
 
-
+    .form-section{
+        /* margin: 30px 50px; */
+        /* border-radius: 8px; */
+        width: 100%;
+        padding: 20px 80px !important;
     }
 
+    .img-section{
+        display: none;
+    }
 
+}
+
+@media screen and (max-width: 500px){
+    .form-section{
+        padding: 0 20px !important;
+
+    }
 }
 </style>
