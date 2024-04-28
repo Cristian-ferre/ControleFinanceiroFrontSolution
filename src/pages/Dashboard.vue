@@ -35,6 +35,7 @@ import asideNav from "@/components/MenuAside.vue"
                             <img src="/src/assets/icons/view.png">
                         </div>
                     </div>
+                    
                     <div class="secoes col-md-5 col-lg-5">
                         <P>ola</P>
                     </div>
