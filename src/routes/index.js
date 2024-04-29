@@ -12,9 +12,16 @@ import despesa from '@/pages/transacoes/Despesa.vue'
 const routes = [
   { path: '/login', component: Login },
   { path: '/cadastrar', component: Signup },
-  { path: '/transacoes/receita', component: receita, meta: { requiresAuth: true } },
-  { path: '/transacoes/despesa', component: despesa, meta: { requiresAuth: true } },
-  {path: '/dashboard', component: dashboard, name:'dashboard',   meta: { requiresAuth: true }  },
+
+
+  { path: '/transacoes/receita', component: receita },
+  { path: '/transacoes/despesa', component: despesa },
+  {path: '/dashboard', component: dashboard },
+
+  //Com autenticação
+  // { path: '/transacoes/receita', component: receita, meta: { requiresAuth: true } },
+  // { path: '/transacoes/despesa', component: despesa, meta: { requiresAuth: true } },
+  // {path: '/dashboard', component: dashboard, name:'dashboard',   meta: { requiresAuth: true }  },
 ]
 
 const router = createRouter({
