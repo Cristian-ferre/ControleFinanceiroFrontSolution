@@ -2,17 +2,21 @@
 import asideNav from "@/components/MenuAside.vue"
 
 
+
 </script>
 
 <template>
-    <div id="structure">
-        <asideNav />
+  <div id="structure">
+    <asideNav />
 
-        <main id="container-main">
-            
-        </main>
+    <main id="container-main">
 
-    </div>
+      <div>
+      </div>
+
+    </main>
+
+  </div>
 
 
 
@@ -20,6 +24,4 @@ import asideNav from "@/components/MenuAside.vue"
 </template>
 
 
-<style scoped>
-
-</style>
+<style scoped></style>
