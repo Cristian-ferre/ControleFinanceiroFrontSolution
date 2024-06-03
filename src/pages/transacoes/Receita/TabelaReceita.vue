@@ -7,7 +7,7 @@
 import { ref } from 'vue';
 import axiosIntance from '../../../services/http.js';
 
-const receitas = ref<Array>([]);
+const receitas = ref([]);
 
 const getReceitas = async _ =>{
     let response = await axiosIntance.get(`/Receita/ObterTodas`,{
