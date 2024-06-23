@@ -9,7 +9,7 @@ const isActive = (routePath) => {
   return router.currentRoute.value.path === routePath;
 }
 
-const limparlocalStorage = ()=>{
+const limparlocalStorage = () => {
   console.log("limpar")
   localStorage.clear()
 }
@@ -59,8 +59,51 @@ const limparlocalStorage = ()=>{
     </div> -->
   </div>
 
-</template>
+  <div id="container-aside-mobile" style="display: none;">
+    <ul class="aside-mobile">
 
+
+      <li :class="{ 'active': isActive('/receita') }">
+        <RouterLink to="/transacoes/despesa" class=" itens">
+
+          <!-- <img src="/src/assets/icons/dinheiro.png" /> -->
+          <i class="fa-solid fa-money-bill-transfer"></i>
+
+          <p>transacões</p>
+        </RouterLink>
+      </li>
+<!-- 
+
+      <li class="botao-add-mobile" style="display: none;">
+        <img src="/src/assets/icons/pra-cima-green.png" alt="">
+        <P>Adicionar <strong>Receita</strong></P>
+      </li> -->
+
+
+      <li :class="{ 'active': isActive('/dashboard') }">
+        <RouterLink to="/dashboard" class="itens ">
+
+          <i class="fa-solid fa-chart-line"></i>
+          <p>Dashboard</p>
+        </RouterLink>
+
+      </li>
+<!-- 
+      <li class="botao-add-mobile" style="display: none;" >
+        <img src="/src/assets/icons/pra-cima-red.png" alt="">
+        <P>Adicionar <strong>Despesa</strong></P>
+      </li> -->
+
+      <li>
+        <i class="fa-solid fa-user"></i>
+        <p>Perfil</p>
+      </li>
+
+
+    </ul>
+  </div>
+
+</template>
 
 
 <style>
@@ -92,7 +135,7 @@ const limparlocalStorage = ()=>{
       border-radius: 20px;
     }
 
-    h2{
+    h2 {
       font-size: 20px;
       margin: 0;
     }
@@ -149,11 +192,77 @@ const limparlocalStorage = ()=>{
   margin-left: 21%;
   width: 100%;
   height: 100vh;
-border: 1px solid red;
+  border: 1px solid red;
 }
 
 #structure {
   display: flex;
   height: 100%;
 }
+
+@media screen and (max-width: 820px) {
+  .container-aside {
+    background-color: red;
+    display: none;
+  }
+
+  #container-main {
+    margin: 0;
+    /* width: 100vw;
+    padding: 100%; */
+  }
+
+  #container-aside-mobile {
+    display: block !important;
+    background-color: #fff;
+    box-shadow: 10px -4px 8px rgba(0, 0, 0, 0.1);
+
+
+    z-index: 1000;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: auto;
+
+    .aside-mobile {
+      display: flex;
+      justify-content: space-around;
+      margin-bottom: 0;
+      padding-left: 0;
+
+      li {
+        padding: 10px;
+        text-align: center;
+        list-style: none;
+
+
+        p {
+          margin: 0;
+          color: #000;
+        }
+
+      }
+
+      li i, img {
+        width: 40px;
+        color: #000;
+
+      }
+
+      li img{
+        width: 20px;
+
+      }
+
+    }
+
+  }
+
+}
+
+/* @media screen and (max-width: 576px){
+.botao-add-mobile{
+  display: block !important;
+}
+} */
 </style>

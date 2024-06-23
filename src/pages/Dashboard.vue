@@ -7,11 +7,11 @@ import navMeses from '@/components/calendarioNavegacao/NavegacaoMeses.vue';
     <div id="structure">
         <asideNav />
         <main id="container-main">
-            <div class="structure-page col-md-12 col-lg-12">
+            <div class="structure-page col-12 col-sm-12 col-md-12 col-lg-12">
                 <div class="container-primeira-secao">
-                    <div class="secao secao-saldo  col-md-5 col-lg-5">
+                    <div class="secao secao-saldo col-11  col-sm-5 col-md-5 col-lg-5">
                         <div class="secao-img-dl">
-                            <div class="secao-img">
+                            <div class="secao-img b-saldo-atual">
                                 <img src="/src/assets/icons/piggy-bank.png" alt="porquinhos">
 
                             </div>
@@ -30,28 +30,185 @@ import navMeses from '@/components/calendarioNavegacao/NavegacaoMeses.vue';
                         </div>
                     </div>
 
-                    <div class="secao secao-img botao-add col-md-2 col-lg-2">
+                    <div class="secao secao-img botao-add col-4  col-sm-2 col-md-2 col-lg-2">
                         <img src="/src/assets/icons/pra-cima-green.png" alt="">
                         <P>Adicionar <strong>Receita</strong></P>
                     </div>
-                    <div class="secao secao-img botao-add col-md-2 col-lg-2">
+                    <div class="secao secao-img botao-add col-4  col-sm-2 col-md-2 col-lg-2">
                         <img src="/src/assets/icons/pra-cima-red.png" alt="">
-
                         <P>Adicionar <strong>Despesa</strong></P>
                     </div>
                 </div>
                 <navMeses />
 
                 <div class="container-segunda-secao">
-                    <div class=" t  col-md-3">
-                        1
+                    <div class=" secao t col-5  col-sm-3 col-md-3">
+                        <div class="secao-img b-total-receitas">
+                            <img src="/src/assets/icons/dollar.png" alt="porquinhos">
+
+                        </div>
+                        <div>
+                            <dl>
+                                <dt>Receitas Recebidas:</dt>
+                                <!-- <dd>R$ 40.000</dd> -->
+                                <dd v-if="saldoAtual == null">R$ 0,00</dd>
+                                <dd ifelse>{{ saldoAtual }}</dd>
+
+                            </dl>
+                        </div>
                     </div>
-                    <div class="t  col-md-3">
-                        2
+                    <div class=" secao t col-5 col-sm-3 col-md-3">
+                        <div class="secao-img b-total-despesas">
+                            <img src="/src/assets/icons/dollar.png" alt="porquinhos">
+
+                        </div>
+                        <div>
+                            <dl>
+                                <dt>Total Despesas:</dt>
+                                <!-- <dd>R$ 40.000</dd> -->
+                                <dd v-if="saldoAtual == null">R$ 0,00</dd>
+                                <dd ifelse>{{ saldoAtual }}</dd>
+
+                            </dl>
+                        </div>
                     </div>
-                    <div class="t col-md-3">
-                        3
+                    <div class=" secao t col-11 col-sm-3 col-md-3">
+                        <div class="secao-img b-total-despesas">
+                            <img src="/src/assets/icons/check.png" alt="porquinhos">
+
+                        </div>
+                        <div>
+                            <dl>
+                                <dt>A Pagar:</dt>
+                                <!-- <dd>R$ 40.000</dd> -->
+                                <dd v-if="saldoAtual == null">R$ 0,00</dd>
+                                <dd ifelse>{{ saldoAtual }}</dd>
+
+                            </dl>
+                        </div>
                     </div>
+                </div>
+                <div class="container-segunda-secao container-terceira-secao">
+                    <div class=" secao-proximas  ">
+                        <h2>Proximas despesas</h2>
+                        <div class="container-proxima-despesas">
+                            <div class="img-descricao">
+                                <div class="container-img">
+                                    <img class="img" src="/src/assets/icons/dinheiro.png" alt="porquinhos">
+                                </div>
+                                <div class="descricao">
+                                    <div>
+                                        <div class="nome">
+                                            <p>Cartão visa </p>
+                                        </div>
+                                        <p>Variavel</p>
+                                    </div>
+                                    <div>
+                                        <div class="status-pagamento  nao-pago">
+                                            <p>Não pago</p>
+                                        </div>
+                                        <div class="valor-despesas">
+                                            <p>R$ 675,89</p>
+                                        </div>
+
+                                    </div>
+                                    <div>
+                                        <p>categoria</p>
+                                        <p>10 de junho</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="container-proxima-despesas">
+                            <div class="img-descricao">
+                                <div class="container-img">
+                                    <img class="img" src="/src/assets/icons/dinheiro.png" alt="porquinhos">
+                                </div>
+                                <div class="descricao">
+                                    <div>
+                                        <div class="nome">
+                                            <p>Cartão visa </p>
+                                        </div>
+                                        <p>Variavel</p>
+                                    </div>
+                                    <div>
+                                        <div class="status-pagamento  pago">
+                                            <p>pago</p>
+                                        </div>
+                                        <div class="valor-despesas">
+                                            <p>R$ 675,89</p>
+                                        </div>
+
+                                    </div>
+                                    <div>
+                                        <p>categoria</p>
+                                        <p>10 de junho</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class=" secao-proximas">
+                        <h2>Proximas receitas</h2>
+                        <div class="container-proxima-despesas">
+                            <div class="img-descricao">
+                                <div class="container-img">
+                                    <img class="img" src="/src/assets/icons/dinheiro.png" alt="porquinhos">
+                                </div>
+                                <div class="descricao">
+                                    <div>
+                                        <p>Salario Bussiness</p>
+                                        <p>Fixo</p>
+                                    </div>
+                                    <div>
+                                        <div class="status-pagamento  nao-pago">
+                                            <p>Não recebido</p>
+                                        </div>
+                                        <div class="valor-receitas">
+
+                                        <p>R$ 5.670,00</p>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <p></p>
+                                        <p>5 de junho</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="container-proxima-despesas">
+                            <div class="img-descricao">
+                                <div class="container-img">
+                                    <img class="img" src="/src/assets/icons/dinheiro.png" alt="porquinhos">
+                                </div>
+                                <div class="descricao">
+                                    <div>
+                                        <p>Salario Bussiness</p>
+                                        <p>Fixo</p>
+                                    </div>
+                                    <div>
+                                        <div class="status-pagamento  pago">
+                                            <p>Recebido</p>
+                                        </div>
+                                        <div class="valor-receitas">
+
+                                        <p>R$ 5.670,00</p>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <p></p>
+                                        <p>5 de junho</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </main>
@@ -64,8 +221,11 @@ dd,
 p {
     margin: 0;
     padding: 0;
-    text-align: center !important;
+    color: #000;
 }
+
+
+
 
 .secao-img {
     background-color: gainsboro;
@@ -75,6 +235,11 @@ p {
     img {
         width: 35px;
         height: 35px;
+    }
+
+    p {
+        text-align: center !important;
+        margin: 0;
     }
 }
 
@@ -87,27 +252,36 @@ p {
     cursor: pointer;
 }
 
+
+.secao {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 12px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    height: 80px;
+    max-height: 90px;
+    display: flex;
+    align-items: center;
+
+    .secao-img-dl {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    dl {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+}
+
+
 .container-primeira-secao {
-    /* border: 1px solid red;; */
     display: flex;
     gap: 20px;
     justify-content: center;
 
-    .secao {
-        background-color: #fff;
-        border-radius: 8px;
-        padding: 10px;
-        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-        /* Sombra: horizontal, vertical, desfoque, cor */
-        height: 75px;
-        max-height: 90px;
-
-        .secao-img-dl {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-        }
-    }
 
     .secao-saldo {
         display: flex;
@@ -122,17 +296,206 @@ p {
 }
 
 .container-segunda-secao {
-    /* border: 1px solid blue; */
     display: flex;
-    /* gap: 10px; */
     justify-content: center;
+    gap: 20px;
+
+
+    .secao-img {
+        margin-right: 10px;
+    }
+
+}
+
+.container-terceira-secao {
+    gap: 40px;
+    margin-top: 20px;
 
     div {
-        margin: 10px;
+        width: 37.5%;
+    }
+
+    p {
+        margin: 3px;
+        flex-wrap: nowrap;
+        text-align: start;
+        width: 100%;
+
+    }
+
+
+
+
+    .secao-proximas {
+        background-color: #fff;
+        border-radius: 8px;
+        padding: 12px;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        h2 {
+            margin-top: 0;
+        }
+
+        /* div{
+            background-color: red;
+        } */
+
+        .container-proxima-despesas {
+            display: flex;
+            width: 100% !important;
+            flex-direction: row;
+            /* background-color: red; */
+
+            .img-descricao {
+                display: flex;
+                width: 100%;
+
+                .container-img {
+                    flex: 1;
+
+                }
+
+                .container-img {
+                    display: flex;
+                    align-items: center;
+
+                    .img {
+                        width: 60px;
+                        background-color: gainsboro;
+                        border-radius: 8px;
+                        padding: 10px;
+                    }
+                }
+            }
+
+            .descricao {
+                flex: 4;
+
+                div {
+                    display: flex;
+                    width: 100% !important;
+                    justify-content: space-between;
+                    gap: 10px;
+                }
+
+                .nome p {
+                    font-weight: bold;
+                }
+
+                .valor-despesas p{
+                    color: red;
+                    font-weight: bold;
+
+                }
+
+                .valor-receitas p {
+                    color: green;
+                    font-weight: bold;
+
+                }
+            }
+
+
+            .container-secao-img {
+                display: flex;
+                align-items: center;
+                flex: 2;
+
+            }
+
+
+            .status-pagamento {
+                border-radius: 50px;
+                p {
+                    padding: 0 5px;
+                    font-weight: bold;
+                }
+            }
+
+            .nao-pago {
+                background-color: #FFEC5C;
+
+            }
+
+            .pago {
+                background-color: #B4CF66;
+            }
+
+        }
     }
 }
 
 .t {
     background-color: #fff;
+}
+
+.b-saldo-atual{
+    background-color: #D9D9D9 !important;
+}
+
+.b-total-receitas{
+    background-color: #9EFFB6;
+}
+
+.b-total-despesas{
+    background-color: #FEE6E6;
+}
+
+@media screen and (max-width: 576px) {
+    .container-primeira-secao {
+        /* flex-direction: column; */
+        align-items: center;
+    }
+
+    .botao-add {
+        display: none;
+    }
+
+    .container-segunda-secao {
+        flex-wrap: wrap;
+        gap: 35px;
+    }
+
+    .container-terceira-secao {
+        flex-direction: column;
+        align-items: center;
+
+        div {
+            width: 91%;
+        }
+    }
+}
+
+@media screen and (max-width: 460px) {
+    .secao-img {
+        padding: 6px;
+
+        img {
+            width: 30px;
+            height: 30px;
+        }
+
+
+
+    }
+
+    .container-img {
+
+        .img {
+            width: 40px !important;
+            padding: 6px !important;
+
+        }
+
+    }
+
+
+    #container-main {
+        padding: 20px 0;
+    }
+
 }
 </style>

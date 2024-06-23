@@ -93,17 +93,19 @@ updateMonths(); // Chamada inicial para atualizar os meses exibidos
 <template>
     <div class="calendar">
         <div class="header">
-            <button @click="prevMonth"><img src="/src/assets/icons/seta-esquerda.png" class="botao-navegacao" alt="botão navegação esquerda"> </button>
-            <div v-for="(month, index) in months" :key="index" @click="selectMonth(index)"
+            <button @click="prevMonth"><img src="/src/assets/icons/seta-esquerda.png" class="botao-navegacao"
+                    alt="botão navegação esquerda"> </button>
+            <div class="dd-mes" v-for="(month, index) in months" :key="index" @click="selectMonth(index)"
                 :class="{ 'selected': index === Math.floor(monthsToShow / 2) }">
                 <h2 @click=" teste(month)">{{ month }}</h2>
             </div>
-            <button @click="nextMonth"> <img src="/src/assets/icons/seta-direita.png" class="botao-navegacao" alt="botão navegação direita"> </button>
+            <button @click="nextMonth"> <img src="/src/assets/icons/seta-direita.png" class="botao-navegacao"
+                    alt="botão navegação direita"> </button>
         </div>
     </div>
 </template>
 <style scoped>
-button{
+button {
     all: initial;
 }
 
@@ -111,14 +113,14 @@ button{
     margin: 20px 0;
 
     .header {
-        background-color: #EEEEEE;
+        background-color: #F2F2F2;
         padding: 10px 10px;
         border-radius: 50px;
         display: flex;
         justify-content: space-between;
         align-items: center;
 
-        .botao-navegacao{
+        .botao-navegacao {
             width: 25px;
             cursor: pointer;
         }
@@ -129,18 +131,37 @@ button{
         font-size: 16px;
         font-weight: 500;
 
-padding: 0;
-margin: 0;
+        padding: 0;
+        margin: 0;
     }
 
     .selected {
         /* background-color: red; */
         font-weight: bold;
-        h2{
+
+        h2 {
             font-size: 20px;
             font-weight: 800;
 
         }
     }
 }
+
+@media screen and (max-width: 576px) {
+    .dd-mes {
+        text-align: center;
+        width: 100px;
+        h2 {
+            font-size: 15px;
+
+        }
+    }
+
+    .selected h2 {
+        font-size: 15px;
+
+    }
+}
+
+
 </style>
