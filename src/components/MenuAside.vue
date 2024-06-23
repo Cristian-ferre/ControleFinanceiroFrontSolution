@@ -4,8 +4,6 @@ import { useRouter } from "vue-router";
 const router = useRouter();
 
 const isActive = (routePath) => {
-  console.log("router.currentRoute.value.path:", router.currentRoute.value.path);
-  console.log("routePath:", routePath);
   return router.currentRoute.value.path === routePath;
 }
 
@@ -42,7 +40,12 @@ const limparlocalStorage = () => {
                   transações
                 </RouterLink>
               </li>
-
+              <li :class="{ 'active': isActive('/receita') }">
+                <RouterLink to="/transacoes/receita" class=" itens">
+                  <i style="width: 20px;text-align: center;" class="fas fa-dollar-sign"></i>
+                  Receitas
+                </RouterLink>
+              </li>
             </ul>
           </nav>
         </span>

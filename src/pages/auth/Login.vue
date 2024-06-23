@@ -35,10 +35,11 @@ import 'vue3-toastify/dist/index.css'
 
 import autenticacao from '../../components/autenticacaoLayout/UsuarioAutenticacao.vue'
 import inputDefault from '../../components/estruturaInput/input.vue'
-import axios from 'axios';
+// import axios from 'axios';
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
 import { toast } from 'vue3-toastify';
+import axiosIntance from '../../services/http.js';
 
 const router = useRouter();
 
@@ -57,8 +58,10 @@ const updatePassword = (value) => {
 
 const login = async () => {
   try {
-    let response = await axios.post(`https://localhost:44318/ControleFinanceiro/Usuario/Auth?email=${email.value}&senha=${senha.value}`)
+    // let response = await axios.post(`https://localhost:44318/ControleFinanceiro/Usuario/Auth?email=${email.value}&senha=${senha.value}`)
+    let response = await axiosIntance.post(`/Usuario/Auth?email=${email.value}&senha=${senha.value}`)
 
+    
 
     if(response == null){
       console.log("vaziooo")
@@ -66,7 +69,7 @@ const login = async () => {
 
     localStorage.setItem("token", response.data.token.token)
     // Lidar com a resposta de login
-    console.log('Resposta de login:',  response.data.token.token);
+    // console.log('Resposta de login:',  response.data.token.token);
    
     toast.success('Login feito com sucesso', {
       containerId: 'A',

@@ -3,8 +3,8 @@ import { createRouter, createWebHistory } from 'vue-router'
 import Login from '../pages/auth/Login.vue'
 import Signup from '@/pages/auth/Signup.vue'
 import dashboard from '@/pages/Dashboard.vue'
-import receita from '@/pages/transacoes/Receita.vue'
-import despesa from '@/pages/transacoes/Despesa.vue'
+import receita from '@/pages/transacoes/Receita/Receita.vue'
+import despesa from '@/pages/transacoes/Despesa/Despesa.vue'
 
 // import { isAuthenticated } from '@/services/auth'; // Função para verificar se o usuário está autenticado
 
@@ -34,7 +34,6 @@ router.beforeEach((to, from, next) => {
   // Verifique se a rota requer autenticação e se há um token no localStorage
   if (to.meta.requiresAuth && !localStorage.getItem('token')) {
     // Se não houver token, redirecione para a página de login
-    console.log("localStorage.getItem('token')")
     next('/login');
   } else {
     // Caso contrário, prossiga para a próxima rota

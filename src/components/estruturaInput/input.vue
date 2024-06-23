@@ -53,12 +53,27 @@ const emitChange = (event) => {
 
 
 <template>
-    <div class="form-elementos">
+    <div v-if="type!='select'" class="form-elementos">
         <label :for="forName">{{ label }}</label>
         <div class="form-input-img">
             <!-- <input :type="type" :id="forName" :placeholder="placeholder"  required> -->
             <!-- <input :type="type" :id="forName" :placeholder="placeholder" v-model="fieldValue"  @input="emitChange" required> -->
             <input :type="type" :id="forName" :placeholder="placeholder" :value="value"   @input="emitChange" required>
+
+            <div class="form-img">
+                <slot></slot>
+            </div>
+
+        </div>
+    </div>
+    <div v-else class="form-elementos">
+        <label :for="forName">{{ label }}</label>
+        <div class="form-input-img">
+            <!-- <input :type="type" :id="forName" :placeholder="placeholder"  required> -->
+            <!-- <input :type="type" :id="forName" :placeholder="placeholder" v-model="fieldValue"  @input="emitChange" required> -->
+            <select :id="forName">
+                <option>Selecione</option>
+            </select>
 
             <div class="form-img">
                 <slot></slot>
@@ -92,7 +107,7 @@ const emitChange = (event) => {
         border-radius: 5px 0 0 5px;
 
 
-        input {
+        input, select {
             width: 100%;
             border-radius: 5px 0 0 5px;
             border: none;
