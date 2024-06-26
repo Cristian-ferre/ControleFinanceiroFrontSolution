@@ -170,7 +170,7 @@ import navMeses from '@/components/calendarioNavegacao/NavegacaoMeses.vue';
                                         </div>
                                         <div class="valor-receitas">
 
-                                        <p>R$ 5.670,00</p>
+                                            <p>R$ 5.670,00</p>
                                         </div>
                                     </div>
                                     <div>
@@ -197,7 +197,7 @@ import navMeses from '@/components/calendarioNavegacao/NavegacaoMeses.vue';
                                         </div>
                                         <div class="valor-receitas">
 
-                                        <p>R$ 5.670,00</p>
+                                            <p>R$ 5.670,00</p>
                                         </div>
                                     </div>
                                     <div>
@@ -211,8 +211,33 @@ import navMeses from '@/components/calendarioNavegacao/NavegacaoMeses.vue';
 
                 </div>
             </div>
+
+            <!-- Modal -->
+            <div class="modal fade" id="confirmacao-sair" tabindex="-1" role="dialog" aria-labelledby="TituloModalLongoExemplo"
+                aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="TituloModalLongoExemplo">Sair</h5>
+                          
+                        </div>
+                        <div class="modal-body">
+                            Você tem certeza que deseja sair?
+                        </div>
+                        <div class="modal-footer">
+                            <RouterLink  data-dismiss="modal" class="btn btn-primary btn-confimacao-sair " type="button"  @click="limparlocalStorage()" to="/login" >
+                                Sair
+                            </RouterLink>
+                            <button type="button" class="btn btn-secondary btn-confimacao-fechar" data-dismiss="modal">Fechar</button>
+                           
+                        </div>
+                    </div>
+                </div>
+            </div>
         </main>
     </div>
+
+
 </template>
 
 <style scoped>
@@ -385,7 +410,7 @@ p {
                     font-weight: bold;
                 }
 
-                .valor-despesas p{
+                .valor-despesas p {
                     color: red;
                     font-weight: bold;
 
@@ -409,6 +434,7 @@ p {
 
             .status-pagamento {
                 border-radius: 50px;
+
                 p {
                     padding: 0 5px;
                     font-weight: bold;
@@ -432,16 +458,28 @@ p {
     background-color: #fff;
 }
 
-.b-saldo-atual{
+.b-saldo-atual {
     background-color: #D9D9D9 !important;
 }
 
-.b-total-receitas{
+.b-total-receitas {
     background-color: #9EFFB6;
 }
 
-.b-total-despesas{
+.b-total-despesas {
     background-color: #FEE6E6;
+}
+.btn-confimacao-sair {
+    width: 100px;
+    background-color: var(--primary-color);
+}
+
+.btn-confimacao-fechar{
+    width: 100px;
+
+    background-color: #fff;
+    color: var(--primary-color);
+    border-color: var(--primary-color);
 }
 
 @media screen and (max-width: 576px) {
@@ -496,6 +534,8 @@ p {
     #container-main {
         padding: 20px 0;
     }
+
+  
 
 }
 </style>

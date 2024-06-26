@@ -26,6 +26,8 @@ const limparlocalStorage = () => {
             </div>
             <h2>Cristian Ferreira</h2>
           </span>
+            
+
           <nav>
             <ul class="navegacao">
               <li :class="{ 'active': isActive('/dashboard') }" class="dashboard">
@@ -50,12 +52,20 @@ const limparlocalStorage = () => {
           </nav>
         </span>
         <span class="sair">
-          <RouterLink @click="limparlocalStorage()" to="/login" class=" itens">
+          <!-- <RouterLink @click="limparlocalStorage()" to="/login" class=" itens">
             <i class="fa-solid fa-right-from-bracket"></i>
             Sair
-          </RouterLink>
+          </RouterLink> -->
+
+            <!-- Botão para acionar modal -->
+            <button class="itens" type="button" data-toggle="modal" data-target="#confirmacao-sair" style="border: 0; background-color: #fff;">
+              <i class="fa-solid fa-right-from-bracket"></i>
+              Sair            
+            </button>
         </span>
       </div>
+
+
     </aside>
     <!-- <div id="container-main">
       <RouterView />
@@ -159,7 +169,8 @@ const limparlocalStorage = () => {
     }
 
     .dashboard {
-      background-color: #4f46e5 !important;
+      /* background-color: #4f46e5 !important; */
+      background-color: var(--primary-color) !important;
       z-index: 1000;
 
       a {

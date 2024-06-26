@@ -73,7 +73,13 @@ const submitForm = () => {
         </section>
         <section class="img-section">
             <h1>Organize sua vida</h1>
-            <img src="/src/assets/mobills.svg" />
+            <!-- <img src="/src/assets/mobills.svg" /> -->
+            <!-- <img src="/src/assets/img/" /> -->
+             <!-- <img src="/src/assets/img/piggy-bank-concept-illustration.png" /> 
+             <!-- <img src="/src/assets/img/ilustracao-do-conceito-de-gestao-de-dinheiro.png" /> -->
+             <img src="/src/assets/img/ilustracao-do-conceito-de-decisoes-de-negocios.png" />
+
+
         </section>
     </main>
 </template>
@@ -122,6 +128,10 @@ main {
             line-height: 48px;
             color: #282447;
 
+        }
+
+        img{
+            width: 500px;
         }
     }
 
