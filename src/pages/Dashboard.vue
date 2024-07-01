@@ -1,6 +1,9 @@
 <script setup>
 import asideNav from "@/components/MenuAside.vue";
 import navMeses from '@/components/calendarioNavegacao/NavegacaoMeses.vue';
+import formReceita from '../components/modais/FormAdicionarReceita.vue'
+import formDespesa from '../components/modais/FormAdicionarDespesa.vue'
+
 </script>
 
 <template>
@@ -30,14 +33,28 @@ import navMeses from '@/components/calendarioNavegacao/NavegacaoMeses.vue';
                         </div>
                     </div>
 
-                    <div class="secao secao-img botao-add col-4  col-sm-2 col-md-2 col-lg-2">
+                    <button class="secao secao-img botao-add col-4  col-sm-2 col-md-2 col-lg-2" data-bs-toggle="modal"
+                        data-bs-target="#adicionarReceita">
                         <img src="/src/assets/icons/pra-cima-green.png" alt="">
                         <P>Adicionar <strong>Receita</strong></P>
-                    </div>
-                    <div class="secao secao-img botao-add col-4  col-sm-2 col-md-2 col-lg-2">
+                    </button>
+                    <button class="secao secao-img botao-add col-4  col-sm-2 col-md-2 col-lg-2" data-bs-toggle="modal"
+                        data-bs-target="#adicionarDespesa">
                         <img src="/src/assets/icons/pra-cima-red.png" alt="">
                         <P>Adicionar <strong>Despesa</strong></P>
-                    </div>
+                    </button>
+
+
+                    <!-- Button trigger modal adicionarDespesa-->
+                    <!-- <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus"
+                    viewBox="0 0 16 16">
+                    <path
+                        d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4" />
+                </svg>
+                Adicionar
+            </button> -->
+
                 </div>
                 <navMeses />
 
@@ -213,27 +230,36 @@ import navMeses from '@/components/calendarioNavegacao/NavegacaoMeses.vue';
             </div>
 
             <!-- Modal -->
-            <div class="modal fade" id="confirmacao-sair" tabindex="-1" role="dialog" aria-labelledby="TituloModalLongoExemplo"
-                aria-hidden="true">
+            <div class="modal fade" id="confirmacao-sair" tabindex="-1" role="dialog"
+                aria-labelledby="TituloModalLongoExemplo" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
                             <h5 class="modal-title" id="TituloModalLongoExemplo">Sair</h5>
-                          
+
                         </div>
                         <div class="modal-body">
                             Você tem certeza que deseja sair?
                         </div>
                         <div class="modal-footer">
-                            <RouterLink  data-dismiss="modal" class="btn btn-primary btn-confimacao-sair " type="button"  @click="limparlocalStorage()" to="/login" >
+                            <RouterLink data-dismiss="modal" class="btn btn-primary btn-confimacao-sair " type="button"
+                                @click="limparlocalStorage()" to="/login">
                                 Sair
                             </RouterLink>
-                            <button type="button" class="btn btn-secondary btn-confimacao-fechar" data-dismiss="modal">Fechar</button>
-                           
+                            <button type="button" class="btn btn-secondary btn-confimacao-fechar"
+                                data-dismiss="modal">Fechar</button>
+
                         </div>
                     </div>
                 </div>
             </div>
+
+            <formReceita></formReceita>
+            <formDespesa></formDespesa>
+
+
+
+
         </main>
     </div>
 
@@ -469,12 +495,13 @@ p {
 .b-total-despesas {
     background-color: #FEE6E6;
 }
+
 .btn-confimacao-sair {
     width: 100px;
     background-color: var(--primary-color);
 }
 
-.btn-confimacao-fechar{
+.btn-confimacao-fechar {
     width: 100px;
 
     background-color: #fff;
@@ -535,7 +562,7 @@ p {
         padding: 20px 0;
     }
 
-  
+
 
 }
 </style>

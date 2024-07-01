@@ -1,5 +1,5 @@
 <script setup>
-import { defineProps, defineEmits  } from 'vue';
+import { defineProps, defineEmits } from 'vue';
 
 const InputType = {
     Text: 'text',
@@ -40,37 +40,20 @@ const emit = defineEmits();
 const fieldValue = '';
 
 const emitChange = (event) => {
-    // console.log(event)
-    // console.log(event.target)
-    // console.log(event.target.value)
-
-
-    // console.log("opas")
-  emit('change', event.target.value);
+    emit('change', event.target.value);
 };
+
+
+
 
 </script>
 
 
 <template>
-    <div v-if="type!='select'" class="form-elementos">
+    <!-- Div que será exibida se forName for igual a 'CategoriaInput' -->
+    <div v-if="forName === 'CategoriaInput'" class="form-elementos">
         <label :for="forName">{{ label }}</label>
         <div class="form-input-img">
-            <!-- <input :type="type" :id="forName" :placeholder="placeholder"  required> -->
-            <!-- <input :type="type" :id="forName" :placeholder="placeholder" v-model="fieldValue"  @input="emitChange" required> -->
-            <input :type="type" :id="forName" :placeholder="placeholder" :value="value"   @input="emitChange" required>
-
-            <div class="form-img">
-                <slot></slot>
-            </div>
-
-        </div>
-    </div>
-    <div v-else class="form-elementos">
-        <label :for="forName">{{ label }}</label>
-        <div class="form-input-img">
-            <!-- <input :type="type" :id="forName" :placeholder="placeholder"  required> -->
-            <!-- <input :type="type" :id="forName" :placeholder="placeholder" v-model="fieldValue"  @input="emitChange" required> -->
             <select :id="forName">
                 <option>Selecione</option>
             </select>
@@ -78,7 +61,66 @@ const emitChange = (event) => {
             <div class="form-img">
                 <slot></slot>
             </div>
+        </div>
+    </div>
 
+    <div v-else-if="forName === 'FormasPagamentoInput'" class="form-elementos">
+        <label :for="forName">{{ label }}</label>
+        <div class="form-input-img">
+            <select :id="forName">
+                <option>Selecione</option>
+                <option value="1">Credito</option>
+
+                <option value="2">Debito</option>
+                <option value="3">Pix</option>
+            </select>
+
+            <div class="form-img">
+                <slot></slot>
+            </div>
+        </div>
+    </div>
+    <!-- <div v-if="forName === 'FormasPagamentoInput'" class="form-elementos">
+                <label :for="forName">{{ label }}</label>
+                <div class="form-input-img">
+                    <select :id="forName">
+                        <option>Selecione</option>
+                        <option value="0">Debito</option>
+                        <option value="1">Credito</option>
+                        <option value="3">Pix</option>
+                    </select>
+
+                    <div class="form-img">
+                        <slot></slot>
+                    </div>
+                </div>
+            </div> -->
+    <div v-else>
+        <div v-if="type != 'select'" class="form-elementos">
+            <label :for="forName">{{ label }}</label>
+            <div class="form-input-img">
+                <!-- <input :type="type" :id="forName" :placeholder="placeholder"  required> -->
+                <!-- <input :type="type" :id="forName" :placeholder="placeholder" v-model="fieldValue"  @input="emitChange" required> -->
+                <input :type="type" :id="forName" :placeholder="placeholder" :value="value" @input="emitChange"
+                    required>
+                <div class="form-img">
+                    <slot></slot>
+                </div>
+            </div>
+        </div>
+
+        <div v-else class="form-elementos">
+            <label :for="forName">{{ label }}</label>
+            <div class="form-input-img">
+                <select :id="forName">
+                    <!-- <option>Selecione</option> -->
+                    <option value="0">Fixo</option>
+                    <option value="1">Variavel</option>
+                </select>
+                <div class="form-img">
+                    <slot></slot>
+                </div>
+            </div>
         </div>
     </div>
 </template>
@@ -107,14 +149,15 @@ const emitChange = (event) => {
         border-radius: 5px 0 0 5px;
 
 
-        input, select {
+        input,
+        select {
             width: 100%;
             border-radius: 5px 0 0 5px;
             border: none;
             background-color: var(--gray-bg);
             color: var(--text-color);
 
-            
+
 
         }
 
