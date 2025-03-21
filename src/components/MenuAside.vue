@@ -116,6 +116,31 @@ const limparlocalStorage = () => {
     </ul>
   </div>
 
+  <!-- Modal SAIR -->
+  <div class="modal fade" id="confirmacao-sair" tabindex="-1" role="dialog"
+                aria-labelledby="TituloModalLongoExemplo" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="TituloModalLongoExemplo">Sair</h5>
+
+                        </div>
+                        <div class="modal-body">
+                            Você tem certeza que deseja sair?
+                        </div>
+                        <div class="modal-footer">
+                            <RouterLink data-dismiss="modal" class="btn btn-primary botao-confirmar" type="button"
+                                @click="limparlocalStorage()" to="/login">
+                                Sair
+                            </RouterLink>
+                            <button type="button" class="btn btn-secondary botao-cancelar"
+                                data-dismiss="modal">Fechar</button>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
 </template>
 
 

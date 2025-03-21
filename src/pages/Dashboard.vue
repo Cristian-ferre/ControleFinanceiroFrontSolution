@@ -229,30 +229,7 @@ import formDespesa from '../components/modais/FormAdicionarDespesa.vue'
                 </div>
             </div>
 
-            <!-- Modal -->
-            <div class="modal fade" id="confirmacao-sair" tabindex="-1" role="dialog"
-                aria-labelledby="TituloModalLongoExemplo" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="TituloModalLongoExemplo">Sair</h5>
-
-                        </div>
-                        <div class="modal-body">
-                            Você tem certeza que deseja sair?
-                        </div>
-                        <div class="modal-footer">
-                            <RouterLink data-dismiss="modal" class="btn btn-primary btn-confimacao-sair " type="button"
-                                @click="limparlocalStorage()" to="/login">
-                                Sair
-                            </RouterLink>
-                            <button type="button" class="btn btn-secondary btn-confimacao-fechar"
-                                data-dismiss="modal">Fechar</button>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
+            
 
             <formReceita></formReceita>
             <formDespesa></formDespesa>
@@ -301,6 +278,7 @@ p {
     justify-content: center;
     align-items: center;
     cursor: pointer;
+    border:none;
 }
 
 
@@ -496,7 +474,7 @@ p {
     background-color: #FEE6E6;
 }
 
-.btn-confimacao-sair {
+/* .btn-confimacao-sair {
     width: 100px;
     background-color: var(--primary-color);
 }
@@ -507,7 +485,7 @@ p {
     background-color: #fff;
     color: var(--primary-color);
     border-color: var(--primary-color);
-}
+} */
 
 @media screen and (max-width: 576px) {
     .container-primeira-secao {

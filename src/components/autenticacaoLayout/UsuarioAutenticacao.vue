@@ -51,7 +51,7 @@ const submitForm = () => {
             <!-- <div class="logo-container">
                 <i class="fas fa-coins logo-icon"></i> -->
                 <span class="logotipo">
-                    <img class="logo" src="../../assets/logo-financo.svg"></img>
+                    <!-- <img class="logo" src="../../assets/logo-financo.svg"></img> -->
                     <h1 class="logo-text">Finanço</h1>
                 </span>
 
@@ -143,12 +143,12 @@ main {
         .logotipo{
             display: flex;
             align-items: center;
-            color: #6115DD;
+            color: var(--primary-color);
         }
 
         h1{
             margin: 0 !important;
-
+font-size: 50px;
         }
 
         .logo{

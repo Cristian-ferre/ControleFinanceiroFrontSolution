@@ -32,7 +32,7 @@
 
         </div>
         <div class="modal-footer">
-          <button class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal"
+          <button class="btn btn-primary botao-confirmar" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal"
             data-bs-dismiss="modal">Avançar</button>
         </div>
       </div>
@@ -57,8 +57,8 @@
           </inputDefault>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-          <button @click="adicionarReceita()" type="button" class="btn btn-primary">Adicionar</button>
+          <button type="button" class="btn btn-secondary botao-cancelar" data-bs-dismiss="modal">Cancelar</button>
+          <button @click="adicionarReceita()" type="button" class="btn btn-primary botao-confirmar">Adicionar</button>
         </div>
       </div>
     </div>
@@ -70,25 +70,12 @@ import { ref, onMounted } from 'vue'
 import inputDefault from '@/components/estruturaInput/input.vue'
 import axiosIntance from '@/services/http.js';
 import { toast } from 'vue3-toastify';
+import { useStore } from 'vuex';
+const store = useStore();
 
-// const formReceita = async _ => {
-//   var selectTipo = TipoValorInput
-
-//   var tiposValor = await axiosIntance.get('/Receita/TipoReceita')
-
-//   tiposValor.data.forEach((t, index) => {
-//     let option = document.createElement('option')
-//     option.setAttribute('value', index)
-//     option.innerText = t
-//     selectTipo.appendChild(option)
-//   })
-// }
-
-// onMounted(() => {
-//   formReceita()
-// })
 
 const adicionarReceita = async _ => {
+
   const receitaNome = receitaNomeInput.value
   const receitaDescricao = receitaDescricaoInput.value
   const receitaValor = receitaValorInput.value
@@ -125,6 +112,7 @@ const adicionarReceita = async _ => {
     }
   )
 
+console.log("'setAtualizar', true", store.state.atualizar )
   console.log(response)
   if (response.status == 200) {
     toast.success('Receita incluída  com sucesso', {
@@ -138,5 +126,11 @@ const adicionarReceita = async _ => {
       }
     });
   }
+
+  store.commit('setAtualizar', true);
+
+
 }
+
+
 </script>

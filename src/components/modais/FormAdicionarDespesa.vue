@@ -28,10 +28,9 @@
               <img src="@/assets/img/icons8-reticências-48.png" width="16" height="16" />
             </inputDefault>
   
-  
           </div>
           <div class="modal-footer">
-            <button class="btn btn-primary" data-bs-target="#avancarAdicionardespesa" data-bs-toggle="modal"
+            <button class="btn btn-primary botao-confirmar" data-bs-target="#avancarAdicionardespesa" data-bs-toggle="modal"
               data-bs-dismiss="modal">Avançar</button>
           </div>
         </div>
@@ -64,8 +63,8 @@
             </inputDefault>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-            <button @click="adicionarDespesa()" type="button" class="btn btn-primary">Adicionar</button>
+            <button type="button" class="btn btn-secondary botao-cancelar" data-bs-dismiss="modal">Cancelar</button>
+            <button @click="adicionarDespesa()" type="button" class="btn btn-primary botao-confirmar">Adicionar</button>
           </div>
         </div>
       </div>

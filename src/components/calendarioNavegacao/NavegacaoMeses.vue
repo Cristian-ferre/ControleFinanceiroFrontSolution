@@ -1,17 +1,28 @@
 <script setup>
 import { ref, watch } from "vue";
-
+const emit = defineEmits({
+  unvalidatedEvent: null, // if we want an event without validation
+  customChange: (s) => {
+    if (s && typeof s === 'string') {
+      return true
+    } else {
+      console.warn(`Invalid submit event payload!`)
+      return false
+    }
+  },
+})
 const currentDate = ref(new Date());
 const selectedMonth = ref(new Date());
 const saldoAtual = ref();
 const monthsToShow = 3;
 
 const months = ref([]);
-
+const data = ref([])
 const updateMonths = () => {
 
     const firstMonth = new Date(selectedMonth.value);
     firstMonth.setMonth(selectedMonth.value.getMonth() - Math.floor(monthsToShow / 2));
+    data.value = []; // Inicializa 'data' como um array vazio
 
     months.value = [];
     for (let i = 0; i < monthsToShow; i++) {
@@ -20,9 +31,18 @@ const updateMonths = () => {
         console.log("month", month)
 
         months.value.push(month.toLocaleString("default", { month: "long", year: "numeric" }));
+        data.value.push({
+            ano: month.getFullYear(),
+            mes: month.getMonth() + 1, // getMonth() retorna de 0 a 11
+            dia: month.getDate()
+        });
     }
-    console.log("months", months.value)
+    console.log("data", data);
+
+    console.log("months", months)
     //   atualizarDados()
+
+    emit('customChange', data.value[1])
 };
 
 const prevMonth = () => {
@@ -41,49 +61,7 @@ const selectMonth = (index) => {
     selectedMonth.value = new Date(selected);
 };
 
-const teste = (p) => {
-    console.log("p", p)
-}
 
-const atualizarDados = (mes) => {
-    var jsonData;
-    switch (mes) {
-        case 3:
-            jsonData = {
-                "saldoAtual": "R$ 1500,00",
-                "aPagar": "R$ 500,00",
-                "totalDespesas": "R$ 1000,00",
-                "totalReceita": "R$ 2500,00"
-            };
-            // saldoAtual.value = jsonData.saldoAtual;
-
-            // console.log(jsonData.saldoAtual);
-            break;
-        case 4:
-            jsonData = {
-                "saldoAtual": "R$ 1200,00",
-                "aPagar": "R$ 600,00",
-                "totalDespesas": "R$ 1100,00",
-                "totalReceita": "R$ 2800,00"
-            };
-
-            break;
-        case 5:
-            jsonData = {
-                "saldoAtual": "R$ 1700,00",
-                "aPagar": "R$ 400,00",
-                "totalDespesas": "R$ 900,00",
-                "totalReceita": "R$ 2700,00"
-            };
-
-            break;
-        default:
-            console.error("Mês inválido");
-            return;
-    }
-
-
-}
 
 watch(selectedMonth, updateMonths);
 
